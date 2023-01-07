@@ -1,0 +1,876 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi User Management Apis Documentation",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "usamauddin217@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/api/v1",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/permissions": {
+            "get": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Get list of Permissions",
+                "description": "Returns list of Permissions",
+                "operationId": "get permissions",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PermissionResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Store Single new Permission",
+                "description": "Returns Inserted Permission Resource",
+                "operationId": "store permission",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PermissionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PermissionResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/permissions/{id}": {
+            "get": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Get Permission information",
+                "description": "Returns Permission Resource",
+                "operationId": "getPermissionById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Permission id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PermissionResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Update existing Permission",
+                "description": "Returns updated Permissions Resource",
+                "operationId": "UpdatePermission",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Permission id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PermissionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PermissionResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/roles": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Get list of Roles",
+                "description": "Returns list of Roles",
+                "operationId": "get roles",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Store Single new Role",
+                "description": "Returns Inserted Role Resource",
+                "operationId": "store role",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RoleRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/roles/{id}": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Get Role information",
+                "description": "Returns Role Resource",
+                "operationId": "getRoleById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Update existing Role",
+                "description": "Returns updated Role Resource",
+                "operationId": "updateRole",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RoleRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/roles/permission": {
+            "post": {
+                "tags": [
+                    "RolePermissions"
+                ],
+                "summary": "Store new Role Permission",
+                "description": "Returns Role permission Resource",
+                "operationId": "storeRolePermisson",
+                "requestBody": {
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Role ID": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "Role Name": {
+                                            "type": "string",
+                                            "example": "Hr Manager"
+                                        },
+                                        "Permission ID": {
+                                            "type": "string",
+                                            "example": "2"
+                                        },
+                                        "Permission Name": {
+                                            "type": "string",
+                                            "example": "Update Employee Information"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get list of Users",
+                "description": "Returns list of Users",
+                "operationId": "get users",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResource"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Store Single new User",
+                "description": "Returns Inserted User Resource",
+                "operationId": "store user",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get User information",
+                "description": "Returns User Resource",
+                "operationId": "getUserById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update existing User",
+                "description": "Returns updated User Resource",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/users/permission": {
+            "post": {
+                "tags": [
+                    "UserPermissions"
+                ],
+                "summary": "Store new User Permission",
+                "description": "Returns User Permission Resource",
+                "operationId": "storeUserPermisson",
+                "requestBody": {
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "User ID": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "User Name": {
+                                            "type": "string",
+                                            "example": "Usamauddin"
+                                        },
+                                        "Permission ID": {
+                                            "type": "string",
+                                            "example": "2"
+                                        },
+                                        "Permission Name": {
+                                            "type": "string",
+                                            "example": "Update Employee Information"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "PermissionRequest": {
+                "title": "Permission Form Request",
+                "description": "permission form request body data Validate",
+                "required": [
+                    "name",
+                    "slug"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "Permission Name",
+                        "description": "Name of the new Permission",
+                        "type": "string",
+                        "example": "Update Employee"
+                    },
+                    "slug": {
+                        "title": "Permission Slug",
+                        "description": "Slug of the new Permission",
+                        "type": "string",
+                        "example": "update-employee"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "PermissionRequest"
+                }
+            },
+            "RoleRequest": {
+                "title": "Role Form Request",
+                "description": "role form request body data Validate",
+                "required": [
+                    "name",
+                    "slug"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "Role Name",
+                        "description": "Name of the new Role",
+                        "type": "string",
+                        "example": "Hr Manager"
+                    },
+                    "slug": {
+                        "title": "Role Slug",
+                        "description": "Slug of the new Role",
+                        "type": "string",
+                        "example": "hr-manager"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "RoleRequest"
+                }
+            },
+            "UserRequest": {
+                "title": "User Form Request",
+                "description": "user form request body data Validate",
+                "required": [
+                    "name",
+                    "username",
+                    "email",
+                    "password"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "User Fullname",
+                        "description": "Fullname of the new User",
+                        "type": "string",
+                        "example": "Usamauddin"
+                    },
+                    "username": {
+                        "title": "Username",
+                        "description": "Username of the new User",
+                        "type": "string",
+                        "example": "usama44"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "Email of the new User",
+                        "type": "string",
+                        "example": "usama@gmail.com"
+                    },
+                    "password": {
+                        "title": "Password",
+                        "description": "Password of the new User",
+                        "type": "string",
+                        "example": "password@4422"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "UserRequest"
+                }
+            },
+            "PermissionResource": {
+                "title": "Permission Resource",
+                "description": "Permission resource",
+                "properties": {
+                    "": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Permission"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "PermissionResource"
+                }
+            },
+            "RoleResource": {
+                "title": "Role Resource",
+                "description": "Role resource",
+                "properties": {
+                    "": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Role"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "RoleResource"
+                }
+            },
+            "UserResource": {
+                "title": "User Resource",
+                "description": "User resource",
+                "properties": {
+                    "": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "UserResource"
+                }
+            },
+            "Permission": {
+                "title": "Permission",
+                "description": "Permission model",
+                "properties": {
+                    "permission_id": {
+                        "title": "Permission ID",
+                        "description": "Permission ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Permission Name",
+                        "description": "Name of the new Permission",
+                        "type": "string",
+                        "example": "Update Employee"
+                    },
+                    "slug": {
+                        "title": "Permission Slug",
+                        "description": "Slug of the new Permission",
+                        "type": "string",
+                        "example": "update-employee"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Permission"
+                }
+            },
+            "Role": {
+                "title": "Role",
+                "description": "Role model",
+                "properties": {
+                    "role_id": {
+                        "title": "Role ID",
+                        "description": "Role ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Role Name",
+                        "description": "Name of the new Role",
+                        "type": "string",
+                        "example": "Hr Manager"
+                    },
+                    "slug": {
+                        "title": "Role Slug",
+                        "description": "Slug of the new Role",
+                        "type": "string",
+                        "example": "hr-manager"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Role"
+                }
+            },
+            "User": {
+                "title": "User",
+                "description": "User model",
+                "properties": {
+                    "user_id": {
+                        "title": "User ID",
+                        "description": "User ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "User Fullname",
+                        "description": "Fullname of the new User",
+                        "type": "string",
+                        "example": "Usamauddin"
+                    },
+                    "username": {
+                        "title": "Username",
+                        "description": "Username of the new User",
+                        "type": "string",
+                        "example": "usama44"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "Email of the new User",
+                        "type": "string",
+                        "example": "usama@gmail.com"
+                    },
+                    "password": {
+                        "title": "Password",
+                        "description": "Password of the new User",
+                        "type": "string",
+                        "example": "password@4422"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Permissions",
+            "description": "API Endpoints of Permissions"
+        },
+        {
+            "name": "Roles",
+            "description": "API Endpoints of Roles"
+        },
+        {
+            "name": "Users",
+            "description": "API Endpoints of Users"
+        }
+    ]
+}
